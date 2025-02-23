@@ -3,23 +3,32 @@ Tugas Kecil 1
 IF 2211 Staretgi Algoritma
 </div>
 
+<div align="center">
+Diyah Susan Nugrahani (13523080)
+</div>
+
 # Penyelesaian IQ Puzzle Pro Menggunakan Algoritma Brute Force
 Tugas kecil 1 mata kuliah IF2211 Strategi Algoritma merupakan program untuk mencari solusi dari permainan IQ Puzzle Pro dengan menggunakan algoritma brute force. IQ Puzzle Pro terdiri dari beberapa block puzzle dan sebuah papan. Setiap block puzzle dapat diputar atau dicerminkan untuk menyesuaikan dengan papan. Dalam tugas ini, saya menggunakan pendekatan rekursif untuk mencari solusi yang dapat menempatkan seluruh block puzzle ke dalam papan. 
 
-</div>
+
 
 ## Installing / Getting started
 
 Sebelum menjalankan program ini, anda perlu mempersiapkan beberapa hal terlebih dahulu
-1. clone repository
-```shell
-git clone https://github.com/DiyahSusan/Tucil1_13523080.git
-```
-2. download JDK java
+
+1. download JDK java
 ```shell
 https://www.oracle.com/java/technologies/downloads/
 ```
-3. jalankan program di terminal
+2. clone repository
+```shell
+git clone https://github.com/DiyahSusan/Tucil1_13523080.git
+```
+3. compile program
+```shell
+javac -d bin src/Main.java src/component/Block.java src/component/Grid.java src/component/Solution.java
+```
+4. jalankan program di terminal
 ```shell
 java -cp bin Main
 ```
