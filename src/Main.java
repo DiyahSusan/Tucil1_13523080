@@ -22,7 +22,7 @@ public class Main{
                         "                                                                                   \r\n" + //
                         "                                                                                   ";
         System.out.println(header);
-        
+
         boolean valid = false;
 
         // memilih file
@@ -93,7 +93,6 @@ public class Main{
                                 }
                             }
                         }
-                        // System.out.println(block);
                     }
 
                     // validasi input
@@ -104,17 +103,8 @@ public class Main{
                         valid = false;
                     }
 
-                    // // // (debug)
-                    // System.out.println("Dimensi Papan: " + rows + "x" + cols);
-                    // System.out.println("Banyak kotak : " + counter);
-                    // System.out.println("Banyak Blok Puzzle: " + blockCount);
-                    // System.out.println("Jenis Kasus: " + type);
-                    // System.out.println("Blok Puzzle yang Dibaca:");
-
                     // grid papan
                     Grid grid = new Grid(rows, cols);
-                    // System.out.println("Papan puzzle : ");
-                    // grid.printGrid();
 
                     if (type.equalsIgnoreCase("DEFAULT") && valid){
                         // menghitung waktu

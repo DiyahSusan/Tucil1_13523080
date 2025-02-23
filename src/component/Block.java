@@ -64,14 +64,5 @@ public class Block {
             shape[rows - 1 - r] = temp;
         }
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder("Block ").append(letter).append(":\n");
-        for (char[] row : shape) {
-            sb.append(new String(row)).append("\n");
-        }
-        return sb.toString();
-    }
 }
 
