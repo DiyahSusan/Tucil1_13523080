@@ -43,6 +43,10 @@ public class Main{
                     int cols = Integer.parseInt(dimensions[1]); 
 
                     int blockCount = Integer.parseInt(dimensions[2]);
+                    
+                    if(rows <= 0 || cols <= 0){
+                        valid = false;
+                    }
 
                     // type
                     String type = br.readLine().trim();
@@ -52,7 +56,7 @@ public class Main{
                     Character currentBlock = null;
                     int counter = 0;
 
-                    while (blocks.size() < blockCount || currentBlock != null) { 
+                    while (blocks.size() < blockCount || currentBlock != null && valid) { 
                         String line = br.readLine();
                         if (line != null) {
                             // kalau ada kasus space maka akan diubah sebagai dot
@@ -81,32 +85,37 @@ public class Main{
                         }
                     }
                     
-                    // menghitung jumlah kotak
-                    for (Block block : blocks.values()) {
-                        char [][] shape = block.getShape();
-                        int baris = shape.length;
-                        int kolom = shape[0].length;
-                        for (int i=0; i<baris; i++){
-                            for (int j=0; j<kolom; j++){
-                                if(shape[i][j] != '.'){
-                                    counter += 1;
+                   if (valid){
+                        // menghitung jumlah kotak
+                        for (Block block : blocks.values()) {
+                            char [][] shape = block.getShape();
+                            int baris = shape.length;
+                            int kolom = shape[0].length;
+                            for (int i=0; i<baris; i++){
+                                for (int j=0; j<kolom; j++){
+                                    if(shape[i][j] != '.'){
+                                        counter += 1;
+                                    }
                                 }
                             }
                         }
-                    }
+                   }
 
                     // validasi input
-                    if (counter != rows * cols){
+                    if (blocks.size() > 26){
                         valid = false;
                     }
-                    if (blockCount != blocks.size()){
+                    else if (blockCount != blocks.size()){
+                        valid = false;
+                    }
+                    else if (counter != rows * cols){
                         valid = false;
                     }
 
-                    // grid papan
-                    Grid grid = new Grid(rows, cols);
 
                     if (type.equalsIgnoreCase("DEFAULT") && valid){
+                        // grid papan
+                        Grid grid = new Grid(rows, cols);
                         // menghitung waktu
                         long startTime = System.currentTimeMillis();
                         if (Solution.solutionBF(grid, blocks, 0, 0)) {
